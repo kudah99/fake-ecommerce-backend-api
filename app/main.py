@@ -2,6 +2,7 @@ from fastapi_offline import FastAPIOffline
 from starlette.middleware.cors import CORSMiddleware
 from app.core.config import configs
 from app.util.class_object import singleton
+from app.core.container import Container
 
 
 @singleton
@@ -19,6 +20,10 @@ class AppCreator:
                openapi_url=f"{configs.API}/openapi.json"
                )
 
+        # set db and container
+        self.container = Container()
+        self.db = self.container.db()
+        self.db.create_database()
 
         # set cors
         if configs.BACKEND_CORS_ORIGINS:
@@ -37,3 +42,5 @@ class AppCreator:
 
 app_creator = AppCreator()
 app = app_creator.app
+db = app_creator.db
+container = app_creator.container
