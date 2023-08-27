@@ -1,5 +1,5 @@
 from sqlmodel import Field, Column
-from app.model.product import BaseModel
+from app.model.base_model import BaseModel
 
 
 class Category(BaseModel, table=True):

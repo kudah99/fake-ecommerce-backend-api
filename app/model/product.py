@@ -1,5 +1,5 @@
 from sqlmodel import Field, Column
-from app.model.product import BaseModel
+from app.model.base_model import BaseModel
 
 class Product(BaseModel, table=True):
     name: str = Field(sa_column=Column('name', nullable=False))
