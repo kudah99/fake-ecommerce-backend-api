@@ -4,9 +4,9 @@ from typing import  Optional, Union
 
 
 class BaseSchema(BaseModel):
-    id: int
-    created_at: datetime
-    updated_at: datetime
+    id: Optional[int]
+    created_at: Optional[datetime]
+    updated_at: Optional[datetime]
 
 class FindBase(BaseModel):
     ordering: Optional[str]

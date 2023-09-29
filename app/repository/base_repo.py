@@ -1,11 +1,12 @@
 from contextlib import AbstractContextManager
 from typing import Callable
-
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session, joinedload
 
 from app.core.config import configs
-from app.core.exceptions import NotFoundError
+
 from app.util.query_builder import dict_to_sqlalchemy_filter_options
+from app.core.exceptions import DuplicatedError, NotFoundError
 
 
 class BaseRepository:
@@ -71,3 +72,13 @@ class BaseRepository:
             if not query:
                 raise NotFoundError(detail=f"not found id : {id}")
             return query
+        
+    def create(self, schema):
+        with self.session_factory() as session:
+            query = self.model(**schema.dict())
+            try:
+                session.add(query)
+                session.commit()
+                session.refresh(query)
+            except IntegrityError as e:
+                raise DuplicatedError(detail=str(e.orig))
