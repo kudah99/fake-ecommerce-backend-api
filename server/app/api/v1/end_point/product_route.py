@@ -21,3 +21,11 @@ async def get_products_list(
     service: ProductService = Depends(Provide[Container.product_service]),
 ):
     return service.get_list_all()
+
+@router.get("/{id}", response_model=ProductSchema,summary="Get product by id")
+@inject
+async def get_product_by_id(
+    id: int,
+    service: ProductService = Depends(Provide[Container.product_service])
+):
+    return service.get_by_id(id=id)
