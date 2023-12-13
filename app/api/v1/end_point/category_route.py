@@ -21,3 +21,11 @@ async def get_category_list(
     service: CategoryService = Depends(Provide[Container.category_service]),
 ):
     return service.get_list_all()
+
+@router.get("/{id}", response_model=CategorySchema,summary="Get category by id")
+@inject
+async def get_category_by_id(
+    id: int,
+    service: CategoryService = Depends(Provide[Container.category_service])
+):
+    return service.get_by_id(id=id)
