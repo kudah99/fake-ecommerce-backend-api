@@ -15,7 +15,7 @@ class Configs(BaseSettings):
         os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     )
 
-    DATABASE_URI = "{db_engine}:///{path}/sqlite.db".format(
+    DATABASE_URI = "{db_engine}:///{path}/prod.db".format(
         db_engine=DB_ENGINE,
         path=PROJECT_ROOT
     )

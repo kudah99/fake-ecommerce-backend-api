@@ -9,7 +9,8 @@ uvicorn = {extras = ["standard"] }
 dependency-injector = "*"
 fastapi-offline = "*"
 pydantic="1.9.1"
-
+sqlalchemy = "*"
+sqlmodel = "*"
 
 [dev-packages]
 
