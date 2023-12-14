@@ -11,6 +11,7 @@ class ProductRepository(BaseRepository):
         self.session_factory = session_factory
         super().__init__(session_factory, Product)
 
+    # get products by category id
     def get_by_category_id(self, id: int, eager=False):
         with self.session_factory() as session:
             query = session.query(self.model)

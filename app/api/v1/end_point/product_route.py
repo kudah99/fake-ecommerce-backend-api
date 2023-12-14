@@ -30,7 +30,7 @@ async def get_product_by_id(
 ):
     return service.get_by_id(id=id)
 
-@router.get("/category/{id}", response_model=ProductSchema,summary="Get products by category id")
+@router.get("/category/{id}",summary="Get products by category id")
 @inject
 async def get_by_category_id(
     id: int,

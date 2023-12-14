@@ -10,6 +10,7 @@ class ProductService(BaseService):
     ):
         self.product_repository = product_repository
         super().__init__(product_repository)
-
+    
+    #get products by category id
     def  get_by_category_id(self, id: any) -> List[Product]:
         return self.product_repository.get_by_category_id(id=id)

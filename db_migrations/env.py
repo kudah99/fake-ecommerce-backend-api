@@ -24,6 +24,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 from app.model.product import Product
 from app.model.category import Category
+from app.model.user_model import User
 
 target_metadata = SQLModel.metadata
 
