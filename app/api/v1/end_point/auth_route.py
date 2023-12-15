@@ -3,7 +3,6 @@ from fastapi import APIRouter, Depends
 
 from app.core.container import Container
 from app.schema.auth_schema import SignIn,SignUp,SignInResponse
-from app.schema.user_schema import User
 from app.services.auth_service import AuthService
 
 router = APIRouter(
