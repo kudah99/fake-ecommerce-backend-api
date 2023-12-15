@@ -72,6 +72,17 @@ class BaseRepository:
             if not query:
                 raise NotFoundError(detail=f"not found id : {id}")
             return query
+
+    def read_by_email(self, email: str, eager=False):
+        with self.session_factory() as session:
+            query = session.query(self.model)
+            if eager:
+                for eager in getattr(self.model, "eagers", []):
+                    query = query.options(joinedload(getattr(self.model, eager)))
+            query = query.filter(self.model.email == email).first()
+            if not query:
+                raise NotFoundError(detail=f"not found email : {email}")
+            return query
         
     def create(self, schema):
         with self.session_factory() as session:

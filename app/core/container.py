@@ -12,7 +12,8 @@ class Container(containers.DeclarativeContainer):
     wiring_config = containers.WiringConfiguration(
         modules=[
             "app.api.v1.end_point.category_route",
-            "app.api.v1.end_point.product_route"
+            "app.api.v1.end_point.product_route",
+            "app.api.v1.end_point.auth_route",
         ]
     )
 
@@ -26,6 +27,10 @@ class Container(containers.DeclarativeContainer):
         ProductRepository, session_factory=db.provided.session
     )
 
+    user_repository = providers.Factory(
+        UserRepository, session_factory=db.provided.session
+    )
+
     category_service = providers.Factory(
         CategoryService,
         category_repository= category_repository
@@ -34,4 +39,9 @@ class Container(containers.DeclarativeContainer):
     product_service = providers.Factory(
         ProductService,
         product_repository=product_repository
+    )
+
+    auth_service = providers.Factory(
+        AuthService,
+        user_repository = user_repository
     )

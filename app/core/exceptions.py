@@ -7,6 +7,10 @@ class NotFoundError(HTTPException):
         self, detail: Any = None, headers: Optional[Dict[str, Any]] = None
     ) -> None:
         super().__init__(status.HTTP_404_NOT_FOUND, detail, headers)
+        
+class AuthError(HTTPException):
+    def __init__(self, detail: Any = None, headers: Optional[Dict[str, Any]] = None) -> None:
+        super().__init__(status.HTTP_403_FORBIDDEN, detail, headers)
 
 class ValidationError(HTTPException):
     def __init__(

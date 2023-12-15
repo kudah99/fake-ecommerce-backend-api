@@ -20,4 +20,9 @@ class Configs(BaseSettings):
         path=PROJECT_ROOT
     )
 
+    # find query
+    PAGE = 1
+    PAGE_SIZE = 20
+    ORDERING = "-id"
+
 configs = Configs()
