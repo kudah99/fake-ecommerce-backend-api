@@ -31,6 +31,10 @@ class Container(containers.DeclarativeContainer):
         UserRepository, session_factory=db.provided.session
     )
 
+    cart_repository = providers.Factory(
+        CartRepository, session_factory=db.provided.session
+    )
+
     category_service = providers.Factory(
         CategoryService,
         category_repository= category_repository
@@ -44,4 +48,9 @@ class Container(containers.DeclarativeContainer):
     auth_service = providers.Factory(
         AuthService,
         user_repository = user_repository
+    )
+
+    cart_service = providers.Factory(
+        CartService,
+        cart_repository = cart_repository
     )
