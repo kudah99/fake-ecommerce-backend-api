@@ -35,5 +35,6 @@ class AuthService(BaseService):
         user = User(**user_info.dict(exclude_none=True))
         user.password = get_password_hash(user_info.password)
         created_user = self.user_repository.create(user)
-        delattr(created_user, "password")
+        print(created_user)
+        #delattr(created_user, "password")
         return created_user
