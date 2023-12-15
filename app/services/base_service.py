@@ -13,3 +13,15 @@ class BaseService:
     
     def add(self, schema):
         return self._repository.create(schema)
+    
+    def patch(self, id: any, schema):
+        return self._repository.update(id, schema)
+
+    def patch_attr(self, id: any, attr: str, value):
+        return self._repository.update_attr(id, attr, value)
+
+    def put_update(self, id: any, schema):
+        return self._repository.whole_update(id, schema)
+
+    def remove_by_id(self, id):
+        return self._repository.delete_by_id(id)

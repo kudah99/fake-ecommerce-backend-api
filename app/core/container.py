@@ -14,7 +14,9 @@ class Container(containers.DeclarativeContainer):
             "app.api.v1.end_point.category_route",
             "app.api.v1.end_point.product_route",
             "app.api.v1.end_point.auth_route",
+            "app.api.v1.end_point.cart_route"
         ]
+
     )
 
     db = providers.Singleton(Database, db_url=configs.DATABASE_URI)

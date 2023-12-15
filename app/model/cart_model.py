@@ -2,6 +2,7 @@ from sqlmodel import Field, Column
 from app.model.base_model import BaseModel
 from typing import List
 
+
 class Cart(BaseModel, table=True):
     user_id: int = Field(
         default=None,

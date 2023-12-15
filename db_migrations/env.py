@@ -25,6 +25,7 @@ if config.config_file_name is not None:
 from app.model.product import Product
 from app.model.category import Category
 from app.model.user_model import User
+from app.model.cart_model import Cart
 
 target_metadata = SQLModel.metadata
 
