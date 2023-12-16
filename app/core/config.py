@@ -1,6 +1,9 @@
 import os
 from typing import List
 from pydantic import BaseSettings
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Configs(BaseSettings):
 
@@ -9,7 +12,7 @@ class Configs(BaseSettings):
 
     BACKEND_CORS_ORIGINS: List[str] = ["*"]
 
-    DB_ENGINE: str = "sqlite"
+    DB_ENGINE: str = "postgresql"
 
     PROJECT_ROOT: str = os.path.dirname(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

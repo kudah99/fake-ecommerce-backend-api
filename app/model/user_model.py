@@ -7,3 +7,4 @@ class User(BaseModel, table=True):
     email: str = Field(sa_column=Column(nullable=False,unique=True))
     password: str = Field(sa_column=Column(nullable=False))
     name: str = Field(sa_column=Column(nullable=False))
+

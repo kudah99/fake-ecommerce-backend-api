@@ -1,18 +1,19 @@
-"""adding cart
+"""added cart table
 
-Revision ID: 3722dac5fb44
-Revises: e6f2991f11b2
-Create Date: 2023-12-15 21:05:22.261478
+Revision ID: 46062dea79c7
+Revises: 318488fef3bb
+Create Date: 2023-12-16 03:21:38.757169
 
 """
 from alembic import op
 import sqlalchemy as sa
 import sqlmodel
+from app.model.cart_model import ProductItem
 
 
 # revision identifiers, used by Alembic.
-revision = '3722dac5fb44'
-down_revision = 'e6f2991f11b2'
+revision = '46062dea79c7'
+down_revision = '318488fef3bb'
 branch_labels = None
 depends_on = None
 
@@ -24,7 +25,7 @@ def upgrade() -> None:
     sa.Column('created_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
-    sa.Column('products', sa.ARRAY(item_type=any), nullable=False),
+    sa.Column('products', sqlmodel.JSON(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
