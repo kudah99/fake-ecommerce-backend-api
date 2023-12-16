@@ -8,15 +8,13 @@ from app.services import *
 
 
 class Container(containers.DeclarativeContainer):
-
     wiring_config = containers.WiringConfiguration(
         modules=[
             "app.api.v1.end_point.category_route",
             "app.api.v1.end_point.product_route",
             "app.api.v1.end_point.auth_route",
-            "app.api.v1.end_point.cart_route"
+            "app.api.v1.end_point.cart_route",
         ]
-
     )
 
     db = providers.Singleton(Database, db_url=configs.DATABASE_URI)
@@ -38,21 +36,13 @@ class Container(containers.DeclarativeContainer):
     )
 
     category_service = providers.Factory(
-        CategoryService,
-        category_repository= category_repository
+        CategoryService, category_repository=category_repository
     )
 
     product_service = providers.Factory(
-        ProductService,
-        product_repository=product_repository
+        ProductService, product_repository=product_repository
     )
 
-    auth_service = providers.Factory(
-        AuthService,
-        user_repository = user_repository
-    )
+    auth_service = providers.Factory(AuthService, user_repository=user_repository)
 
-    cart_service = providers.Factory(
-        CartService,
-        cart_repository = cart_repository
-    )
+    cart_service = providers.Factory(CartService, cart_repository=cart_repository)

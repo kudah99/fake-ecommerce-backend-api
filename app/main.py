@@ -11,15 +11,15 @@ class AppCreator:
     def __init__(self):
         # set app default
         self.app = FastAPIOffline(
-                title=configs.PROJECT_NAME,
-                description="",
-                version="0.0.1",
-                contact={
-                    "name": "Kuda",
-                    "email": "kcchipangura@gmail.com",
-                    },
-               openapi_url=f"{configs.API}/openapi.json"
-               )
+            title=configs.PROJECT_NAME,
+            description="",
+            version="0.0.1",
+            contact={
+                "name": "Kuda",
+                "email": "kcchipangura@gmail.com",
+            },
+            openapi_url=f"{configs.API}/openapi.json",
+        )
 
         # set db and container
         self.container = Container()
@@ -40,8 +40,9 @@ class AppCreator:
         @self.app.get("/")
         def root():
             return "service is working"
-        
+
         self.app.include_router(v1_routers, prefix=configs.API)
+
 
 app_creator = AppCreator()
 app = app_creator.app

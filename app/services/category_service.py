@@ -1,6 +1,7 @@
 from .base_service import BaseService
 from app.repository.category_repo import CategoryRepository
 
+
 class CategoryService(BaseService):
     def __init__(
         self,

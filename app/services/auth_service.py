@@ -13,8 +13,8 @@ class AuthService(BaseService):
     def __init__(self, user_repository: UserRepository):
         self.user_repository = user_repository
         super().__init__(user_repository)
-    
-    #user login
+
+    # user login
     def sign_in(self, sign_in_info: SignIn):
         find_user = FindUser()
         find_user.email__eq = sign_in_info.email__eq
@@ -29,12 +29,12 @@ class AuthService(BaseService):
             "message": "Login succesful",
         }
         return sign_in_result
-    
-    #user sign-up
+
+    # user sign-up
     def sign_up(self, user_info: SignUp):
         user = User(**user_info.dict(exclude_none=True))
         user.password = get_password_hash(user_info.password)
         created_user = self.user_repository.create(user)
         print(created_user)
-        #delattr(created_user, "password")
+        # delattr(created_user, "password")
         return created_user

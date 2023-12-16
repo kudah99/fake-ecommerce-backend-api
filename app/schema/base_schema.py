@@ -1,12 +1,13 @@
 from datetime import datetime
 from pydantic import BaseModel
-from typing import  Optional, Union
+from typing import Optional, Union
 
 
 class BaseSchema(BaseModel):
     id: Optional[int]
     created_at: Optional[datetime]
     updated_at: Optional[datetime]
+
 
 class FindBase(BaseModel):
     ordering: Optional[str]

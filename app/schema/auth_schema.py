@@ -14,6 +14,7 @@ class SignUp(BaseModel):
     email: str
     password: str
     name: str
-    
+
+
 class SignInResponse(BaseModel):
     message: str

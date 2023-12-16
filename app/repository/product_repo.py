@@ -1,6 +1,6 @@
 from contextlib import AbstractContextManager
 from typing import Callable
-from sqlalchemy.orm import Session , joinedload
+from sqlalchemy.orm import Session, joinedload
 from app.model.product import Product
 from .base_repo import BaseRepository
 from app.core.exceptions import NotFoundError

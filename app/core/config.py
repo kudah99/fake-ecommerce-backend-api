@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-class Configs(BaseSettings):
 
+class Configs(BaseSettings):
     PROJECT_NAME: str = "ECOMMERCE MOCKUP API"
     API: str = "/api"
 
@@ -39,10 +39,10 @@ class Configs(BaseSettings):
         database="ecommerce",
     )
 
-
     # find query
     PAGE = 1
     PAGE_SIZE = 20
     ORDERING = "-id"
+
 
 configs = Configs()

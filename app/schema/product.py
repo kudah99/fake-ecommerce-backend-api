@@ -1,6 +1,7 @@
-from app.schema.base_schema import BaseSchema,SearchOptions
+from app.schema.base_schema import BaseSchema, SearchOptions
 from typing import List, Optional
 from pydantic import BaseModel
+
 
 class ProductSchema(BaseSchema):
     name: str
@@ -11,6 +12,7 @@ class ProductSchema(BaseSchema):
 
     class Config:
         orm_mode = True
+
 
 class FindProductResult(BaseModel):
     founds: Optional[List[ProductSchema]]

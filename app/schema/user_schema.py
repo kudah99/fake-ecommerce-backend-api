@@ -10,7 +10,6 @@ class BaseUser(BaseModel):
     email: str
     name: str
 
-
     class Config:
         orm_mode = True
 

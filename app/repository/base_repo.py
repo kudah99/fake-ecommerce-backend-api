@@ -16,7 +16,7 @@ class BaseRepository:
         self.session_factory = session_factory
         self.model = model
 
-    def read_all(self,eager=False):
+    def read_all(self, eager=False):
         with self.session_factory() as session:
             query = session.query(self.model)
             if eager:
@@ -83,7 +83,7 @@ class BaseRepository:
             if not query:
                 raise NotFoundError(detail=f"not found email : {email}")
             return query
-        
+
     def create(self, schema):
         with self.session_factory() as session:
             query = self.model(**schema.dict())
