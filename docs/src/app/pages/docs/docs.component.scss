@@ -1,0 +1,42 @@
+:host {
+    display: flex;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  nz-header{
+    background: #fff;
+  }
+
+.logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 30px 16px 0;
+    float: left;
+  }
+
+  .header-menu {
+    line-height: 64px;
+  }
+
+  .sider-menu {
+    height: 100%;
+    border-right: 0;
+    
+  }
+
+  .inner-layout {
+    padding: 0 0 0;
+  }
+
+  .ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+    margin-top: 1.25rem;
+    border-right: 1px solid rgba(0,0,0,.06);
+  }
+
+  nz-content {
+    background: #fff;
+    padding: 24px;
+    min-height: 280px;
+  }
