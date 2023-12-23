@@ -1,29 +1,15 @@
 <nz-layout>
-    <nz-header>
-      <div class="logo"></div>
-      <ul nz-menu nzTheme="light" nzMode="horizontal" class="header-menu" fxLayout="row" fxLayoutAlign="center center">
-        <li nz-menu-item nzSelected>Home</li>
-        <li nz-menu-item>Docs</li>
-        <li nz-menu-item>Github</li>
-      </ul>
-    </nz-header>
-    <nz-layout>
-      <nz-sider 
-      nzTheme="light"
-      nzCollapsible
-      nzWidth="256px"
-      nzBreakpoint="md"
-      >
+  <app-nav-bar></app-nav-bar>
+  <nz-layout>
+    <nz-sider nzTheme="light" nzCollapsible nzWidth="256px" nzBreakpoint="md">
+      <ng-scrollbar autoHeightDisabled="false" [visibility]="'hover'">
         <ul nz-menu nzMode="inline" nz-menu-divider class="sider-menu">
-
           <!-- Products routes list -->
           <li nz-menu-group nzTitle="Products" nzIcon="appstore">
-            <ul  class="ant-menu-item-group-list">
+            <ul class="ant-menu-item-group-list">
               <li nz-menu-item nzMatchRouter>
                 <span class="ant-menu-title-content">
-                  <a [routerLink]="['/home']"
-                  >Get all products</a
-                >
+                  <a [routerLink]="['/','docs','products','get-all-products']">Get all products</a>
                 </span>
               </li>
               <li nz-menu-item nzMatchRouter>
@@ -35,15 +21,13 @@
               </li>
             </ul>
           </li>
-
+  
           <!-- Categories routes List -->
-          <li nz-menu-group nzTitle="Categories"  nzIcon="appstore">
-            <ul  class="ant-menu-item-group-list">
+          <li nz-menu-group nzTitle="Categories" nzIcon="appstore">
+            <ul class="ant-menu-item-group-list">
               <li nz-menu-item nzMatchRouter>
                 <span class="ant-menu-title-content">
-                  <a [routerLink]="['/home/dgg']"
-                  >Get all categories</a
-                >
+                  <a [routerLink]="['/home/dgg']">Get all categories</a>
                 </span>
               </li>
               <li nz-menu-item nzMatchRouter>
@@ -55,15 +39,13 @@
               </li>
             </ul>
           </li>
-
+  
           <!-- Cart routes List -->
-          <li nz-menu-group nzTitle="Cart"  nzIcon="appstore">
-            <ul  class="ant-menu-item-group-list">
+          <li nz-menu-group nzTitle="Cart" nzIcon="appstore">
+            <ul class="ant-menu-item-group-list">
               <li nz-menu-item nzMatchRouter>
                 <span class="ant-menu-title-content">
-                  <a [routerLink]="['/home/dgg']"
-                  >Get all carts</a
-                >
+                  <a [routerLink]="['/home/dgg']">Get all carts</a>
                 </span>
               </li>
               <li nz-menu-item nzMatchRouter>
@@ -76,21 +58,19 @@
               <li nz-menu-item nzMatchRouter>
                 <span class="ant-menu-title-content">
                   <a [routerLink]="['/', 'dashboard', 'home', 'drafts']">
-                   Update cart by id
+                    Update cart by id
                   </a>
                 </span>
               </li>
             </ul>
           </li>
-
+  
           <!-- Categories routes List -->
-          <li nz-menu-group nzTitle="Categories"  nzIcon="appstore">
-            <ul  class="ant-menu-item-group-list">
+          <li nz-menu-group nzTitle="Categories" nzIcon="appstore">
+            <ul class="ant-menu-item-group-list">
               <li nz-menu-item nzMatchRouter>
                 <span class="ant-menu-title-content">
-                  <a [routerLink]="['/home/dgg']"
-                  >Get all categories</a
-                >
+                  <a [routerLink]="['/home/dgg']">Get all categories</a>
                 </span>
               </li>
               <li nz-menu-item nzMatchRouter>
@@ -102,15 +82,13 @@
               </li>
             </ul>
           </li>
-
+  
           <!-- User routes List -->
-          <li nz-menu-group nzTitle="Users"  nzIcon="user">
-            <ul  class="ant-menu-item-group-list">
+          <li nz-menu-group nzTitle="Users" nzIcon="user">
+            <ul class="ant-menu-item-group-list">
               <li nz-menu-item nzMatchRouter>
                 <span class="ant-menu-title-content">
-                  <a [routerLink]="['/home/dgg']"
-                  >Get all users</a
-                >
+                  <a [routerLink]="['/home/dgg']">Get all users</a>
                 </span>
               </li>
               <li nz-menu-item nzMatchRouter>
@@ -123,24 +101,25 @@
               <li nz-menu-item nzMatchRouter>
                 <span class="ant-menu-title-content">
                   <a [routerLink]="['/', 'dashboard', 'home', 'drafts']">
-                   Sign In
+                    Sign In
                   </a>
                 </span>
               </li>
               <li nz-menu-item nzMatchRouter>
                 <span class="ant-menu-title-content">
                   <a [routerLink]="['/', 'dashboard', 'home', 'drafts']">
-                   Sign Up
+                    Sign Up
                   </a>
                 </span>
               </li>
             </ul>
           </li>
-
         </ul>
-      </nz-sider>
-      <nz-layout class="inner-layout">
-        <nz-content>Content</nz-content>
-      </nz-layout>
+      </ng-scrollbar>
+     
+    </nz-sider>
+    <nz-layout class="inner-layout">
+      <nz-content fxLayout="row" fxLayoutAlign="center start"><router-outlet></router-outlet></nz-content>
     </nz-layout>
   </nz-layout>
+</nz-layout>

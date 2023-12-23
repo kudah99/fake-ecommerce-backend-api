@@ -1,0 +1,16 @@
+<nz-ribbon nzText="GET">
+  <nz-card style="width: 400px;" [nzTitle]="titleTemplate" [nzExtra]="extraTemplate">
+    <span>Output: </span>
+    <textarea rows="5" highlight-js  [lang]="'json'">
+    </textarea>
+  </nz-card>
+</nz-ribbon>
+
+
+<ng-template #titleTemplate>
+  <span style="font-size: 12px;"> /users/mapbox</span>
+</ng-template>
+
+<ng-template #extraTemplate>
+  <a>sample code</a>
+</ng-template>

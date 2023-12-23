@@ -1,5 +1,9 @@
 import { NgModule ,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgScrollbarModule } from 'ngx-scrollbar';
+import {HIGHLIGHTJS_CONFIG, HighlightJsConfig, HighlightJsModule} from 'ngx-highlight-js';
+import { NzCardModule } from "ng-zorro-antd/card";
+import { NzBadgeModule } from "ng-zorro-antd/badge";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +21,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { NZ_CONFIG, NzConfig } from 'ng-zorro-antd/core/config';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DocsComponent } from './pages/docs/docs.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { GetAllProductsComponent } from './components/get-all-products/get-all-products.component';
 
 registerLocaleData(en);
 
@@ -32,7 +38,9 @@ const ngZorroConfig: NzConfig = {
   declarations: [
     AppComponent,
     HomeComponent,
-    DocsComponent
+    DocsComponent,
+    NavBarComponent,
+    GetAllProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,12 +51,22 @@ const ngZorroConfig: NzConfig = {
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
-    FlexLayoutModule
+    NzCardModule,
+    NzBadgeModule,
+    FlexLayoutModule,
+    NgScrollbarModule,
+    HighlightJsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
     { provide: NZ_CONFIG, useValue: ngZorroConfig },
+    { 
+      provide: HIGHLIGHTJS_CONFIG, 
+      useValue: { 
+        lang: 'html'
+      } as HighlightJsConfig 
+    }
   ],
   bootstrap: [AppComponent]
 })
