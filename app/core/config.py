@@ -22,15 +22,14 @@ class Configs(BaseSettings):
     DB_PASSWORD: str = os.getenv("DB_PASSWORD")
     DB_HOST: str = os.getenv("DB_HOST")
     DB_PORT: str = os.getenv("DB_PORT")
-    DB: str = os.getenv("DB")
+    DB_NAME: str = os.getenv("DB_NAME")
 
-    DATABASE_URI = "{db_engine}://{user}:{password}@{host}:{port}/{database}".format(
+    DATABASE_URI = "{db_engine}://{user}:{password}@{host}/{database}".format(
         db_engine=DB_ENGINE,
         user=DB_USER,
         password=DB_PASSWORD,
         host=DB_HOST,
-        port=DB_PORT,
-        database=DB
+        database=DB_NAME
     )
 
     # find query
