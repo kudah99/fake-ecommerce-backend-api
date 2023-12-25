@@ -1,19 +1,15 @@
 import { Component } from '@angular/core';
-import { HighlightJsDirective } from 'ngx-highlight-js';
 
 @Component({
-  selector: 'app-get-all-products',
-  templateUrl: './get-all-products.component.html',
-  styleUrls: ['./get-all-products.component.scss'],
-  //imports: [HighlightJsDirective]
+  selector: 'app-get-product-by-category-id',
+  templateUrl: './get-product-by-category-id.component.html',
+  styleUrls: ['./get-product-by-category-id.component.scss']
 })
-export class GetAllProductsComponent {
+export class GetProductByCategoryIdComponent {
 
-  index =0;
+  route= "/products/category/{id}";
 
-  route= "/products/"
-
-  title="Get all products"
+  title= " Get products by category Id"
 
   output = `
   [

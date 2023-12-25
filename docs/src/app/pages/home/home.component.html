@@ -1,1 +1,9 @@
 <app-nav-bar></app-nav-bar>
+<div class="container" #element>
+    <div>
+        <h1>{{data.name}}</h1>
+        <h2>{{data.job}}</h2>
+
+        <span class="punchline"><button nz-button nzType="primary" [routerLink]="['/', 'docs', 'products', 'get-all-products']">view docs</button></span>
+    </div>
+</div>

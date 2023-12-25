@@ -27,10 +27,13 @@ class Database:
                 bind=self._engine,
             ),
         )
+        print("**********")
+        print(db_url)
 
     def create_database(self) -> None:
         BaseModel.metadata.create_all(self._engine)
 
+    
     @contextmanager
     def session(self) -> Callable[..., AbstractContextManager[Session]]:
         session: Session = self._session_factory()

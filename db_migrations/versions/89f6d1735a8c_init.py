@@ -1,8 +1,8 @@
 """init
 
-Revision ID: 318488fef3bb
+Revision ID: 89f6d1735a8c
 Revises: 
-Create Date: 2023-12-16 02:35:19.800449
+Create Date: 2023-12-23 21:18:39.089295
 
 """
 from alembic import op
@@ -11,7 +11,7 @@ import sqlmodel
 
 
 # revision identifiers, used by Alembic.
-revision = '318488fef3bb'
+revision = '89f6d1735a8c'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,9 +23,9 @@ def upgrade() -> None:
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
-    sa.Column('name', sa.CHAR(length=50), nullable=False),
-    sa.Column('description', sa.CHAR(length=100), nullable=True),
-    sa.Column('slug', sa.CHAR(length=100), nullable=True),
+    sa.Column('name', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
+    sa.Column('description', sqlmodel.sql.sqltypes.AutoString(), nullable=True),
+    sa.Column('slug',sqlmodel.sql.sqltypes.AutoString(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('name')
     )
@@ -33,21 +33,29 @@ def upgrade() -> None:
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
-    sa.Column('email', sa.CHAR(length=50), nullable=False),
-    sa.Column('password', sa.CHAR(length=250), nullable=False),
-    sa.Column('name', sa.CHAR(length=50), nullable=False),
+    sa.Column('email',sqlmodel.sql.sqltypes.AutoString(), nullable=False),
+    sa.Column('password',sqlmodel.sql.sqltypes.AutoString(), nullable=False),
+    sa.Column('name',sqlmodel.sql.sqltypes.AutoString(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email')
     )
-
+    op.create_table('cart',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('created_at', sa.DateTime(timezone=True), nullable=True),
+    sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('products', sqlmodel.JSON(), nullable=False),
+    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
     op.create_table('product',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
-    sa.Column('name', sa.CHAR(length=50), nullable=False),
-    sa.Column('description', sa.CHAR(length=100), nullable=False),
-    sa.Column('price', sa.CHAR(length=5), nullable=False),
-    sa.Column('image', sa.CHAR(length=100), nullable=True),
+    sa.Column('name', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
+    sa.Column('description', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
+    sa.Column('price', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
+    sa.Column('image', sqlmodel.sql.sqltypes.AutoString(), nullable=True),
     sa.Column('category_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['category_id'], ['category.id'], ),
     sa.PrimaryKeyConstraint('id')

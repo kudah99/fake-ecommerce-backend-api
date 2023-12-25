@@ -1,0 +1,44 @@
+<nz-ribbon nzText="GET">
+    <nz-card style="width: 600px" [nzTitle]="extraTitle">
+      <nz-card-tab>
+        <nz-tabset nzSize="large"  [nzTabBarExtraContent]="extraTemplate">
+          <nz-tab nzTitle="code">
+            <textarea rows="5" highlight-js  [lang]="'javascript'">
+              fetch('{{ baseUrl }}{{ route }}')
+              .then(json=>console.log(json))
+            </textarea>
+          </nz-tab>
+          <nz-tab nzTitle="output">
+            <textarea rows="10" class="output">
+              {{output}}
+            </textarea>
+          </nz-tab>
+        </nz-tabset>
+      </nz-card-tab>
+    </nz-card>
+  </nz-ribbon>
+
+  <ng-template #extraTitle>
+    <span style="font-size: large; font-weight: bold; font-family: 'Montserrat', sans-serif;">{{ title}}</span>
+  </ng-template>
+
+  <nz-modal [(nzVisible)]="isVisible" [nzTitle]="modalTitle" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+      <nz-spin [nzSpinning]="showSpinner"></nz-spin>
+      <nz-alert
+      *ngIf="!showSpinner"
+      [nzType]="'error'"
+      [nzMessage]="'Failed to load sample code'"
+      [nzDescription]="'Error 500: Server failed to handle your request'"
+    ></nz-alert>
+    </ng-container>
+  </nz-modal>
+  
+  <ng-template #extraTemplate>
+    <button nz-button (click)="showModal()"> sample code</button>
+  </ng-template>
+
+  <ng-template #modalTitle>
+    <span>Sample code ({{title }})</span>
+  </ng-template>
+  
