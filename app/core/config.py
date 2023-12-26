@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 class Configs(BaseSettings):
     PROJECT_NAME: str = "ECOMMERCE MOCKUP API"
     API: str = "/api"
