@@ -11,7 +11,6 @@ fastapi-offline = "*"
 pydantic="1.9.1"
 sqlalchemy = "*"
 sqlmodel = "*"
-psycopg2 = "*"
 black = "*"
 
 [dev-packages]
