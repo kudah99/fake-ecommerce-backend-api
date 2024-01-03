@@ -12,6 +12,7 @@ pydantic="1.9.1"
 sqlalchemy = "*"
 sqlmodel = "*"
 black = "*"
+psycopg-binary = "*"
 
 [dev-packages]
 
