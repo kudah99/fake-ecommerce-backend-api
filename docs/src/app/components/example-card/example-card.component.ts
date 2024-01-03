@@ -13,7 +13,7 @@ export class ExampleCardComponent {
   @Input() output: any;
   @Input() title: string;
 
-  baseUrl = "http://127.0.0.1:8000/api";
+  baseUrl = "https://fake-ecommerce-backend-api-e5g3.vercel.app/api";
 
   isVisible = false;
   showSpinner =false;

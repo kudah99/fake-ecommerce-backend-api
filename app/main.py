@@ -1,4 +1,4 @@
-from fastapi_offline import FastAPIOffline
+from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from app.core.config import configs
 from app.util.class_object import singleton
@@ -10,7 +10,7 @@ from app.api.v1.routes import routers as v1_routers
 class AppCreator:
     def __init__(self):
         # set app default
-        self.app = FastAPIOffline(
+        self.app = FastAPI(
             title=configs.PROJECT_NAME,
             description="",
             version="0.0.1",

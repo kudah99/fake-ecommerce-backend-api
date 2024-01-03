@@ -13,6 +13,7 @@ sqlalchemy = "*"
 sqlmodel = "*"
 black = "*"
 psycopg-binary = "*"
+passlib = "*"
 
 [dev-packages]
 
