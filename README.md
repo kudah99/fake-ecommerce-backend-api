@@ -7,7 +7,7 @@
 
 ## :bulb: About
 
-The [Fake Ecommerce Backend API](https://www.ecommercefakeapi.co) is a free tool designed to expedite ecommerce frontend development by providing a simulated backend experience. This API enables developers to commence work on the frontend and test functionalities that depend on backend responses. Built with Python FastAPI for exceptional performance, this API offers a range of features for managing products, store categories, carts, and user-related operations.
+The [Fake Ecommerce Backend API](https://fake-ecommerce-backend-api-34jn.vercel.app/docs) is a free tool designed to expedite ecommerce frontend development by providing a simulated backend experience. This API enables developers to commence work on the frontend and test functionalities that depend on backend responses. Built with Python FastAPI for exceptional performance, this API offers a range of features for managing products, store categories, carts, and user-related operations.
 ## Features
 
 ### Products API
@@ -36,7 +36,7 @@ The [Fake Ecommerce Backend API](https://www.ecommercefakeapi.co) is a free tool
 
 ## Documentation
 
-Explore the API documentation and access usage code snippets on our [official website](https://www.ecommercefakeapi.co/).
+Explore the API documentation and access usage code snippets on our [official website](https://fake-ecommerce-backend-api-34jn.vercel.app/docs).
 
 ## Tools
 
